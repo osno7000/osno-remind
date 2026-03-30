@@ -41,3 +41,20 @@ Para o daemon arrancar com o sistema, adicionar ao `.bashrc` ou a um cron:
 ```bash
 bash ~/projects/osno-remind/start-daemon.sh
 ```
+
+## Instalação como serviço systemd
+
+```bash
+# Copiar o ficheiro de serviço
+cp osno-remind.service ~/.config/systemd/user/
+
+# Activar e arrancar
+systemctl --user daemon-reload
+systemctl --user enable osno-remind.service
+systemctl --user start osno-remind.service
+
+# Verificar status
+systemctl --user status osno-remind.service
+```
+
+O serviço arranca automaticamente com a sessão gráfica e reinicia se crashar.

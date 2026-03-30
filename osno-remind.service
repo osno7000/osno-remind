@@ -1,0 +1,14 @@
+[Unit]
+Description=OSNO Remind Daemon - agendador de mensagens
+After=osno.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=python3 /home/osno/projects/osno-remind/remind.py daemon
+Restart=always
+RestartSec=10
+Environment="PATH=/home/osno/.local/bin:/usr/local/bin:/usr/bin:/bin"
+
+[Install]
+WantedBy=graphical-session.target
